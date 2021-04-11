@@ -1,0 +1,11 @@
+.Main{
+    grid-row: 2/-1;
+    grid-column: 1;
+    height:530px;
+    width:100%;
+    z-index:1;
+}
+.leaflet-container{
+    height:100%;
+    width:100%;
+}

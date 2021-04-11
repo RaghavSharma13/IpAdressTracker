@@ -6,10 +6,10 @@ import Main from './components/main';
 
 function App() {
   const [ipInfo,setIpInfo]=useState({});
-
+  const key=process.env.REACT_APP_API_KEY;
   const getData=async(ipAddress="")=>{
     try{
-      const result=await (await fetch(`https://geo.ipify.org/api/v1?apiKey=at_mgsZZQ1qypMogGAKmyghFB7SfXbkM&ipAddress=${ipAddress}`)).json();
+      const result=await (await fetch(`https://geo.ipify.org/api/v1?apiKey=${key}&ipAddress=${ipAddress}`)).json();
       setIpInfo({
         ip:result.ip,
         location:result.location.city+', '+result.location.region+' '+result.location.postalCode,
@@ -25,6 +25,7 @@ function App() {
       })
     }
   }
+  //eslint-disable-next-line
   useEffect(()=>getData(),[]);
   return (
     <div className="App">

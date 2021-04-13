@@ -1,5 +1,6 @@
 .infoCard{
     align-items:center;
+    align-self:baseline;
     background-color:white;
     border-radius:20px;
     display:flex;
@@ -7,10 +8,43 @@
     grid-row: 1/3;
     grid-column: 1/1;
     justify-self:center;
-    margin-top:-120px;
-    padding:0px 20px;
-    width:330px;
+    margin-top:180px;
+    padding:20px 20px;
+    width:max(300px,55%);
     z-index:2;
+}
+.infoCard--dropdown{
+    align-items:center;
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+}
+.dropdown--arrow{
+    cursor:pointer;
+    transform:rotate(-90deg);
+    transition:transform 300ms ease-in-out;
+}
+.dropdown--arrow.down{
+    transform:rotate(90deg);
+}
+.dropdown--arrow path {
+    stroke:var(--Very-Dark-Gray);
+}
+.infoCard--info{
+    height:0px;
+    transition:height 300ms ease;
+}
+.infoCard--info.show-Details{
+    height:330px;
+}
+.infoCard--info .tile{
+    visibility: hidden;
+    opacity:0;
+    transition:opacity 800ms ease;
+}
+.infoCard--info.show-Details .tile{
+    visibility: visible;
+    opacity:1;
 }
 .tile{
     margin-top:28px;
@@ -29,18 +63,22 @@
 .tile > h3{
     color:var(--Very-Dark-Gray);
 }
-.last{
-    margin-bottom:28px;
-}
 @media only screen and (min-width:870px){
     .infoCard{
         align-items:flex-start;
         justify-content:space-around;
         flex-direction:row;
-        margin-top:-250px;
         padding-top:28px;
         width:80%;
         max-width:1100px;
+    }
+    .infoCard--dropdown{
+        display:none;
+    }
+    .infoCard--info.show-Details{
+        align-items:flex-start;
+        display:flex;
+        height:unset;
     }
     .tile{
         margin-left:30px;

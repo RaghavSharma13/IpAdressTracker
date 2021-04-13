@@ -22,7 +22,8 @@
     display:flex;
     height:60px;
     overflow:hidden;
-    min-width:min(560px,70%);
+    width: max(300px,78%);
+    max-width: 560px;
 }
 .header--input > input{
     border:none;
